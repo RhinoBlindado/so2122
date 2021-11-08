@@ -22,9 +22,10 @@ if(write(STDOUT_FILENO,buf,sizeof(buf)+1) != sizeof(buf)+1) {
 	perror("\nError en write");
 	exit(EXIT_FAILURE);
 }
-//(1)if(setvbuf(stdout,NULL,_IONBF,0)) {
-//	perror("\nError en setvbuf");
-//}
+
+if(setvbuf(stdout,NULL,_IONBF,0)) {
+	perror("\nError en setvbuf");
+}
 printf("\nMensaje previo a la ejecución de fork");
 
 if( (pid=fork())<0) {
