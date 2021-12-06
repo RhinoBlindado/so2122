@@ -8,11 +8,11 @@
 #include<string.h>
 
 /**
- * @brief Verifica si se ha abierto correctamente el archivo
- * 
- * @param retVal Valor de retorno de open()
+ * @brief Verifica si se ha abierto correctamente el archivo, 
+ * si el valor de retorno de open() es negativo, se genera un error y finaliza el programa.
+ * @param retVal Valor devuelto por open().
  */
-void isOpenErr(int retVal)
+void checkOpen(int retVal)
 {
     if(retVal < 0)
     {
@@ -21,6 +21,7 @@ void isOpenErr(int retVal)
         exit(EXIT_FAILURE);
     }
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -31,8 +32,7 @@ int main(int argc, char *argv[])
     if(argc > 1)
     {
         //... se abre en modo lectura.
-        inputFile = open(argv[1], O_RDONLY);
-        isOpenErr(inputFile);
+        checkOpen( (inputFile = open(argv[1], O_RDONLY)) );
     }
     // Sino, se utiliza la entrada estandar.
     else
@@ -41,8 +41,7 @@ int main(int argc, char *argv[])
     }
 
     // Se abre/crea el fichero de salida en modo de escritura, se trunca si tiene algo.
-    outputFile = open("salida.txt", O_CREAT|O_TRUNC|O_WRONLY, S_IRUSR|S_IWUSR);
-    isOpenErr(outputFile);
+    checkOpen( (outputFile = open("salida.txt", O_CREAT|O_TRUNC|O_WRONLY, S_IRUSR|S_IWUSR)) );
 
     int counter = 1;
     char n[3];
