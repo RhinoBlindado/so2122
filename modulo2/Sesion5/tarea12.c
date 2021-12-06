@@ -30,7 +30,7 @@ int main (int argc, char *argv[])
     
     //Iniciamos un nuevo conjunto de mascaras
     sigemptyset (&conjunto_mascaras);
-    //A–adimos SIGTERM al conjunto de mascaras
+    //Aï¿½adimos SIGTERM al conjunto de mascaras
     sigaddset (&conjunto_mascaras, SIGTERM);
     
     //Bloqueamos SIGTERM
@@ -40,8 +40,20 @@ int main (int argc, char *argv[])
     }
 
     sleep (10);
+    if (signal_recibida)
+    {
+        printf ("\nSenal recibida despues sleep\n");
+    }
+    sigset_t mascarasEspera;
+    sigemptyset(&mascarasEspera);
+    sigpending(&mascarasEspera);
+    
+    if(sigismember(&mascarasEspera, SIGTERM))
+    {
+        printf("\nSenal en espera");
+    }
 
-    //Restauramos la señal – desbloqueamos SIGTERM
+    //Restauramos la seï¿½al ï¿½ desbloqueamos SIGTERM
     if (sigprocmask(SIG_SETMASK, &conj_mascaras_original, NULL) < 0) {
        perror ("segundo sigprocmask");
        exit(EXIT_FAILURE);
