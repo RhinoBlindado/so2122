@@ -26,6 +26,7 @@ if(write(STDOUT_FILENO,buf,sizeof(buf)+1) != sizeof(buf)+1) {
 if(setvbuf(stdout,NULL,_IONBF,0)) {
 	perror("\nError en setvbuf");
 }
+
 printf("\nMensaje previo a la ejecución de fork");
 
 if( (pid=fork())<0) {
