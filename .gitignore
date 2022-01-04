@@ -1,2 +1,4 @@
 # The Kernel, because it's too damn big
 /fedoraKernel
+# Executables
+*_EXE

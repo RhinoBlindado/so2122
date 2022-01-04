@@ -30,7 +30,6 @@ int main (int argc, char * argv[])
 		cerrojo.l_len = 0;
 		} /*mientras existan cerrojos de otros procesos */
 	} /*mientras el bloqueo no tenga exito */
-
 	/* ahora el bloqueo tiene exito y podemos procesar el archivo*/
 	printf ("procesando el archivo\n");
 	/* una vez finalizado el trabajo, desbloqueamos el archivo entero*/

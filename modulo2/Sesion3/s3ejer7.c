@@ -8,6 +8,7 @@
 // Manipulacion de strings
 #include <string.h>
 
+#define MAX_SIZE
 
 void main(int argc, char *argv[])
 {
@@ -50,7 +51,6 @@ void main(int argc, char *argv[])
     if(pid == 0)
     {
         execvp(progName, progParams);
-
     }
     // Padre
     else

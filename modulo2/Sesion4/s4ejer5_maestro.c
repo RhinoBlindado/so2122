@@ -15,7 +15,7 @@ pid_t absFork()
 {
     pid_t pid;
 
-    if ( (pid= fork())<0) 
+    if ( (pid= fork())<0 ) 
     {
         perror("fork");
         exit(EXIT_FAILURE);
@@ -39,16 +39,8 @@ int main(int argc, char *argv[])
     minVal = atoi(argv[1]);
     maxVal = atoi(argv[2]);
 
-    if((minVal + maxVal) % 2 != 0)
-    {
-        midVal = floor((minVal + maxVal) / 2);
-    }
-    else
-    {
-        midVal = (minVal + maxVal) / 2;
-    }
-
-
+    midVal = floor((minVal + maxVal) / 2);
+ 
     pipe(slave2master1); // Llamada al sistema para crear un cauce sin nombre
     pipe(slave2master2);
 

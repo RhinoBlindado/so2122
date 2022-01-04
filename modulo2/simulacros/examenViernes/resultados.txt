@@ -1,0 +1,2 @@
+Resultados:
+i-nodo mas alto: 1313383, numero de archivos: 6

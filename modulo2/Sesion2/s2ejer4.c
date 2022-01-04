@@ -27,8 +27,13 @@ int byteCount = 0;
 
 int checkFile(const char* path, const struct stat* stat, int flags, struct FTW* ftw)
 {
+    char *algo, *otro;
+    printf("base=%d\n", ftw->base);
+    printf("blocks=%ld\n", stat->st_blocks);
+    printf("string=%s\n", path);
+
     if(S_ISREG(stat->st_mode))
-    {
+    {  
         if((stat->st_mode & S_IXOTH) && (stat->st_mode & S_IXGRP))
         {
             printf("%s %ld\n", path, stat->st_ino);

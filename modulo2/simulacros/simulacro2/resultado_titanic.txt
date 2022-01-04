@@ -1,0 +1,5 @@
+Total personas: 714
+Edad media: 29.68
+Min. Edad: 0
+Max. Edad: 80
+ Menores de 5: 40

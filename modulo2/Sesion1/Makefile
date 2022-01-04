@@ -8,7 +8,7 @@
 code = $(n)
 
 $(code)_EXE: $(code).c
-	gcc -o $@ $<
+	gcc -o -lm $@ $<
 
 clean:
 	rm *_EXE
